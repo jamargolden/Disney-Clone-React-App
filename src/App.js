@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { Player, Controls } from "@lottiefiles/react-lottie-player";
+import classes from "./components/App.module.css"
+import netflix from "./lottie/netflix.json"
+import Watching from "./components/Watching";
+import Library from "./components/Library";
+import { createContext, useContext } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { openContext } from "./components/Watching";
+
+export const appContext = createContext(false);
 
 function App() {
+  const { activeProfile } = useContext(openContext)
+  const [ isLibraryOpen, setLibraryOpen ] = useState(false);
+  var aProfile = activeProfile;
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <appContext.Provider value={{ openLibrary: [ isLibraryOpen, setLibraryOpen ] }} >
+      <div className={classes.app}>
+        { isLibraryOpen ? <Library profile={aProfile} /> : "" }
+        { !isLibraryOpen ? <Watching/> : ""}
+        <div className={classes.load}>
+          <Player
+            autoplay
+            renderer="svg"
+            src={netflix}
+            className={classes.loader}
+          >
+            <Controls visible={false} />
+          </Player>
+        </div>
+        
+      </div>
+    </appContext.Provider>
   );
 }
 

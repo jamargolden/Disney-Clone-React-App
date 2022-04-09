@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+::placeholder{
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25rem;
+    margin-left: .5rem;
+}
+
+.app{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-color: rgb(15, 15, 15);
+    
+}
+.content{
+    width: 100%;
+    min-height: 100%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    justify-items: center;
+    
+}
+.load{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: -5%;
+    pointer-events: none;
+}
+.loader{
+    object-fit: cover;
+    height: 100vh;
+    width: 110vw;
+}
+.profileContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    grid-area: profiles;
+    justify-content: center;
+    
+}
+.profiles{
+    margin-right: 1rem;
+}
+.pic{
+    width: 10rem;
+    height: 10rem;
+    background-color: gray;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    background-size: cover;
+}
+.img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.imgOverlay{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    box-sizing: border-box;
+    pointer-events: none;
+    z-index: 1;
+}
+.profileName{
+    font-family: 'Roboto', sans-serif;
+    color: rgb(73, 73, 73);
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.watchContainer{
+    width: 100%;
+}
+.watchingLogo{
+    width: 15%;
+    height: 10%;
+    position: fixed;
+    display: flex;
+    align-items: flex-start;
+    z-index: 3;
+    margin-left: 1rem;
+}
+.watchTitle{
+    font-family: 'Roboto', sans-serif;
+    color: rgba(255, 255, 255, 0.87);
+    font-size: 3rem;
+    font-weight: 500;
+    text-align: center;
+    grid-area: watchTitle;
+}
+.button{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.274);
+    background-color: transparent;
+    border: .1rem rgba(255, 255, 255, 0.274) solid;
+    width: 60%;
+    height: 2.5rem;
+}
+
+
+@media screen and (max-width: 900px) {
+    .watchingLogo{
+        width: 30%;
+        height: 10%;
+        position: fixed;
+        display: flex;
+        align-items: flex-start;
+        z-index: 3;
+        margin-left: 1rem;
+    }
+    .watchTitle{
+        font-family: 'Roboto', sans-serif;
+        color: rgba(255, 255, 255, 0.87);
+        font-size: 2rem;
+        font-weight: 500;
+        text-align: center;
+        grid-area: watchTitle;
+    }
+    .pic{
+        width: 6rem;
+        height: 6rem;
+        background-color: gray;
+        box-sizing: border-box;
+        overflow: hidden;
+        display: flex;
+        background-size: cover;
+    }
+    .profileContainer{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        grid-area: profiles;
+        justify-content: center;
+        align-items: center;
+        margin-left: 1rem;
+    }
+    .button{
+        font-family: 'Roboto', sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.274);
+        background-color: transparent;
+        border: .1rem rgba(255, 255, 255, 0.274) solid;
+        width: 80%;
+        height: 2.5rem;
+    }
+}
