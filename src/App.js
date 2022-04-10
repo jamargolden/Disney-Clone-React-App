@@ -18,8 +18,8 @@ function App() {
   return (
     <appContext.Provider value={{ openLibrary: [ isLibraryOpen, setLibraryOpen ] }} >
       <div className={classes.app}>
-        { isLibraryOpen ? <Library profile={aProfile} /> : "" }
-        { !isLibraryOpen ? <Watching/> : ""}
+        { !isLibraryOpen ? <Library profile={aProfile} /> : "" }
+        { isLibraryOpen ? <Watching/> : ""}
         <div className={classes.load}>
           <Player
             autoplay
