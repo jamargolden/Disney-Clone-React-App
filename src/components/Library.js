@@ -4,9 +4,14 @@ import { motion } from "framer-motion";
 import { myProfiles } from "./Watching";
 import React, { useEffect, useRef, useState } from "react";
 import MovieList from "./MovieList";
+import { createContext } from "react";
+
+
+export const libraryCOntext = createContext(false);
 
 function Library(props){
 
+    const [ isMovieHover, setMovieHover ] = useState("");
     const [ movies, setMovie ] = useState([
     {
         "Title": "Star Wars: Episode V - The Empire Strikes Back",
@@ -43,6 +48,7 @@ function Library(props){
         "Poster": "https://m.media-amazon.com/images/M/MV5BOWZlMjFiYzgtMTUzNC00Y2IzLTk1NTMtZmNhMTczNTk0ODk1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg"
     }]);
     return(
+        <libraryCOntext.Provider value={{ movieHover: [isMovieHover, setMovieHover] }} >
         <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className={classes.libraryContent} >
             <div className={classes.navigation}>
                 <div style={{display: 'flex', width: "75%", height: "100%", marginLeft: "2rem"}}>
@@ -65,10 +71,20 @@ function Library(props){
                     </div>
                 </div>
             </div>
-            <div className={classes.horizontalScroll} >
-                <MovieList movies={movies} />
+            <div className={classes.hero} >
+                <img src={isMovieHover} className={classes.poster} />
+            </div>
+            <div className={classes.carousel} >
+                <p>My List</p>
+                <div className={classes.horizontalScroll} >
+                    <MovieList movies={movies} />
+                </div>
+                <div className={classes.horizontalScroll} >
+                    <MovieList movies={movies} />
+                </div>
             </div>
         </motion.div>
+        </libraryCOntext.Provider>
     )
 }
 

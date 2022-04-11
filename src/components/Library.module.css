@@ -14,6 +14,7 @@
     display: flex;
     position: fixed;
     justify-content: space-between;
+    z-index: 5;
 }
 .img{
     width: 100%;
@@ -72,27 +73,46 @@
     background-size: cover;
     margin-top: 0;
 }
+.hero{
+    width: 100%;
+    height: 60%;
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+}
+.carousel{
+    width: 100%;
+    height: 50vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+}
+.carousel::-webkit-scrollbar {
+    display: none;
+  }
 .horizontalScroll{
     width: 100%;
-    min-height: 25%;
-    position:absolute;
+    min-height: 50%;
+    margin-bottom: 1rem;
     overflow-x: scroll;
     overflow-y: hidden;
-    top: 50%;
     display: flex;
     align-items:  center;
     flex-wrap: nowrap;
     white-space: nowrap;
-    
 }
 .horizontalScroll::-webkit-scrollbar {
     display: none;
   }
 .posterHorz{
     width: 24rem;
-    height: 14rem;
+    height: 12rem;
     border-radius: 1rem;
-    margin-left: 2rem;
+    margin-left: 1rem;
     display: inline-block;
     box-sizing: border-box;
     flex-shrink: 0;
