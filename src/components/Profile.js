@@ -19,18 +19,19 @@ function Profile(props) {
     <motion.div className={classes.profiles} > 
       <motion.div
         transition={{ ease: "easeIn" }}
-        whileHover={{ border: "solid .1rem white" }}
+        whileHover={{ scale: 1.03 }}
         onHoverStart={() => setHover(!isHover)}
         onHoverEnd={() => setHover(!isHover)}
         className={classes.pic}
         style={{backgroundImage: `url(${props.img})`}}
       >
+        <motion.div animate={ isHover ? {opacity: 1} : ""} initial={{opacity: 0}} className={classes.overlay}></motion.div>
         <motion.img animate={iseditOpen ? {opacity: 1}: ""} initial={{opacity: 0}} className={classes.imgOverlay} src={editIcon} />
         <motion.img style={{zIndex: 0}} className={classes.img} src={props.img} />
       </motion.div>
       <p
         className={classes.profileName}
-        style={isHover ? { color: "white" } : { color: "rgb(73, 73, 73)" }}
+        style={{ color: "white" }}
       >
         {props.name}
       </p>

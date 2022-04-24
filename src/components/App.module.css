@@ -8,13 +8,16 @@
 }
 
 .app{
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     margin: 0;
-    overflow: hidden;
-    background-color: rgb(15, 15, 15);
+    overflow-x: hidden;
+    background-color: #1a1d29;
     
 }
+.app::-webkit-scrollbar {
+    display: none;
+  }
 .content{
     width: 100%;
     min-height: 100%;
@@ -24,6 +27,14 @@
     position: absolute;
     justify-items: center;
     
+}
+.content2{
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    margin-left: 50%;
 }
 .load{
     height: 100%;
@@ -49,16 +60,38 @@
     
 }
 .profiles{
-    margin-right: 1rem;
+    padding: 1rem;
 }
 .pic{
-    width: 10rem;
-    height: 10rem;
+    width: 18rem;
+    height: 18rem;
     background-color: gray;
-    box-sizing: border-box;
     overflow: hidden;
     display: flex;
     background-size: cover;
+    border-radius: 50%;
+    border: solid 0 white;
+    
+}
+.overlayAdd{
+    width: 18rem;
+    height: 18rem;
+    background-color: rgba(255, 255, 255, 0.219);
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: solid .5rem white;
+    z-index: 3;
+    position: fixed;
+}
+.overlay{
+    width: 18rem;
+    height: 18rem;
+    background-color: transparent;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: solid .5rem white;
+    z-index: 3;
+    position: fixed;
 }
 .img{
     width: 100%;
@@ -77,7 +110,7 @@
 .profileName{
     font-family: 'Roboto', sans-serif;
     color: rgb(73, 73, 73);
-    font-size: 1.25rem;
+    font-size: 3rem;
     font-weight: 500;
     text-align: center;
 }
@@ -86,31 +119,61 @@
     width: 100%;
 }
 .watchingLogo{
-    width: 15%;
-    height: 10%;
+    width: 9%;
     position: fixed;
     display: flex;
     align-items: flex-start;
     z-index: 3;
-    margin-left: 1rem;
+    margin-left: 3rem;
+    margin-top: 1.5rem;
 }
 .watchTitle{
     font-family: 'Roboto', sans-serif;
     color: rgba(255, 255, 255, 0.87);
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 500;
     text-align: center;
     grid-area: watchTitle;
 }
+.buttonTop{
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    font-weight: 550;
+    color: white;
+    border: none;
+    background-color: #40424a;
+    width: 25%;
+    height: 5.5rem;
+    position: fixed;
+    margin-right: 2rem;
+    right: 0;
+    z-index: 1;
+}
 .button{
     font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.274);
-    background-color: transparent;
-    border: .1rem rgba(255, 255, 255, 0.274) solid;
-    width: 60%;
-    height: 2.5rem;
+    font-size: 2rem;
+    font-weight: 550;
+    color: white;
+    border: none;
+    background-color: #40424a;
+    width: 25%;
+    height: 5.5rem;
+    position: fixed;
+    margin-right: 2rem;
+    right: 0;
+    top: 0;
+    z-index: 3;
+}
+.button2{
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    font-weight: 550;
+    color: white;
+    border: none;
+    background-color: #40424a;
+    width: 100%;
+    height: 5.5rem;
+    margin-right: 2rem;
 }
 
 

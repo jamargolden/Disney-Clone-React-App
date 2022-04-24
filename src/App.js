@@ -5,30 +5,23 @@ import Watching from "./components/Watching";
 import Library from "./components/Library";
 import { createContext, useContext } from "react";
 import React, { useEffect, useRef, useState } from "react";
-import { openContext } from "./components/Watching";
+
 
 export const appContext = createContext(false);
 
 function App() {
-  const { activeProfile } = useContext(openContext)
+  const [ currentProfile, setCurrentProfile ] = useState(0);
   const [ isLibraryOpen, setLibraryOpen ] = useState(false);
-  var aProfile = activeProfile;
+  const [ myProfiles, setMyProfiles ] = useState([]);
 
-
+  console.log(currentProfile);
   return (
-    <appContext.Provider value={{ openLibrary: [ isLibraryOpen, setLibraryOpen ] }} >
+    <appContext.Provider value={{ profileList: [ myProfiles, setMyProfiles ], current: [ currentProfile, setCurrentProfile ], openLibrary: [ isLibraryOpen, setLibraryOpen ] }} >
       <div className={classes.app}>
-        { !isLibraryOpen ? <Library profile={aProfile} /> : "" }
-        { isLibraryOpen ? <Watching/> : ""}
+        { isLibraryOpen ? <Library img={myProfiles[currentProfile][1]} /> : "" }
+        { !isLibraryOpen ? <Watching/> : ""}
         <div className={classes.load}>
-          <Player
-            autoplay
-            renderer="svg"
-            src={netflix}
-            className={classes.loader}
-          >
-            <Controls visible={false} />
-          </Player>
+          
         </div>
         
       </div>

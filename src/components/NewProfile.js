@@ -22,33 +22,17 @@ function NewProfile(props){
 
     return(
         <openContextNewProfile.Provider value={{}} >
-        { isOpen ? <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className={classes.content} style={{ position: "fixed" , backgroundColor: 'rgb(15, 15, 15)', display: 'flex', flexDirection: 'column', zIndex: 2}} >
-            <p className={classes.watchTitle} style={{ marginBottom: '1rem' }}>Add Profile</p>
-            <p className={classes.profileName} style={{ marginTop: 0, marginBottom: '2rem' }} >Add a profile for another person watching Netflix.</p>
-            <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <div className={classes.pic}>
+        { isOpen ? <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className={classes.content2} style={{ position: "fixed" , backgroundColor: '#1a1d29', display: 'flex', flexDirection: 'column', zIndex: 2 }} >
+                <div className={classes.pic} style={{ width: '30rem', height: '30rem' ,position: 'fixed', right: '20%', top: '35%' }} >
                     <motion.img className={classes.img} src={props.pics[0]} />
                 </div>
-                <input onChange={(e) => setNewName(e.target.value)} style={{ width: '35%', height: '3rem', marginLeft: '2rem', border: 'none', backgroundColor: 'rgb(73, 73, 73)' ,  paddingLeft: '1rem'}} type="text" placeholder="NAME"></input>
+            
+            <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'left' }}>
+            <p className={classes.watchTitle} style={{ marginBottom: '3rem', textAlign: 'left' }}>Add Profile</p>
+                <input onChange={(e) => setNewName(e.target.value)} style={{ width: '30%', height: '6rem', border: 'none', backgroundColor: 'rgb(73, 73, 73)' ,  paddingLeft: '1rem'}} type="text" placeholder="NAME"></input>
             </div>
-            <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
-                <motion.button
-                    whileHover={{ border: "solid .1rem white", color: "white" }}
-                    whileTap={{
-                        scale: 0.9,
-                        border: "solid .15rem white",
-                        color: "white",
-                    }}
-                    initial={{ scale: 1 }}
-                    className={classes.button}
-                    style={{ width: '15%', marginTop: "2rem",  gridArea: "manageProfile", backgroundColor: 'red', color: "white" }}
-                    onClick={() =>  { setOpen(!isOpen); setIndex(index+1); setName(newName)}}
-                    
-                    >
-                    CONTINUE
-                </motion.button>
-                <motion.button
-                    whileHover={{ border: "solid .1rem white", color: "white" }}
+            <motion.button
+                    whileHover={{ color: "white", backgroundColor: '#515255' }}
                     whileTap={{
                         scale: 0.9,
                         border: "solid .15rem white",
@@ -61,6 +45,23 @@ function NewProfile(props){
                     >
                     CANCEL
                 </motion.button>
+            <div style={{ width: '100%', display: 'flex'}} >
+                <motion.button
+                    whileHover={{ color: "white", backgroundColor: '#3da6fe' }}
+                    whileTap={{
+                        scale: 0.9,
+                        border: "solid .15rem white",
+                        color: "white",
+                    }}
+                    initial={{ scale: 1 }}
+                    className={classes.button2}
+                    style={{ width: '30.5%', marginTop: "2rem",  gridArea: "manageProfile", backgroundColor: '#0072d2', color: "white" }}
+                    onClick={() =>  { setOpen(!isOpen); setIndex(index+1); setName(newName)}}
+                    
+                    >
+                    SAVE
+                </motion.button>
+                
             </div>
         </motion.div> : ""}
         </openContextNewProfile.Provider>
